@@ -11,3 +11,6 @@ node_modules
 
 # Mac custom file
 .DS_Store
+
+# Todo
+todo.txt
