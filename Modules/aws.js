@@ -8,13 +8,14 @@ var aws = function(req) {
   this.secretAccessKey = req.get("secretAccessKey").trim();
   this.region = req.get("region").trim();
   this.time_ago = req.get("timeago").trim();
-  this.metrics = JSON.parse(req.get("metrics").replace(/ /g, ""));
+  this.metrics = req.body.metrics;
   this.params = {
     Namespace: req.get("namespace").trim(),
     Period: 60,
     Statistics: ["Minimum", "Maximum", "Average", "SampleCount", "Sum"],
-    Dimensions: JSON.parse(req.get("dimensions").trim().replace(/ /g, ""))
+    Dimensions: req.body.dimensions
   };
+
 
   // Authorize the credentials
   AWS.config.update({region: this.region});

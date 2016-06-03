@@ -5,8 +5,8 @@ var Google = function(req) {
     // load google credentials from Qlik Rest Connector
     this.client_email = req.get("clientemail").trim();
     this.private_key = req.get("privatekey").replace(/\\n/g, "\n");
-    this.reportRequests = [{}];
-    this.reportRequests[0].viewId = req.get("viewid").trim();
+    this.reportRequests = [];    
+    this.reportRequests.push(req.body);
 
     // Create the google jwt client for authorization purpose
     this.jwtClient = new googleApis.auth.JWT(this.client_email, null, this.private_key, ["https://www.googleapis.com/auth/analytics.readonly", "https://www.googleapis.com/auth/analytics"], null);
