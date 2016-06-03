@@ -1,8 +1,8 @@
 var express = require("express");
 var app = express();
-var google = require("./googleanalytics")
-var elasticSearch = require("./elasticsearch")
-var Aws = require("./aws")
+var google = require("./Modules/googleanalytics")
+var elasticSearch = require("./Modules/elasticsearch")
+var Aws = require("./Modules/aws")
 
 app.post("/", function(req, res) {
     var type = req.get("Type").toLowerCase().replace(/ /g, '');
